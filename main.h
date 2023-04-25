@@ -6,14 +6,8 @@ int _printf(const char *format, ...);
 int pull_print(char c, va_list *ap);
 int _putchar(char);
 
-#endif
-
-<<<<<<< HEAD
-int _putchar(char);
 int print_int(va_list types, char buffer[]
-, int flags, int width, int precision, int size)
+int flags, int width, int precision, int size)
 
-#endif /*PRINTF_H*/
+#endif /*_PRINT_FUNCTION_H_*/
 
-=======
->>>>>>> 9633441 (_putchar.c)
