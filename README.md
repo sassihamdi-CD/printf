@@ -120,4 +120,4 @@ Handle the following conversion specifiers:
 ## diagrams for tasks
 + diagram for task 0 
 
-![plot](images/Untitled Diagram.drawio.png)
+![plot](.images/Untitled Diagram.drawio.png) 
