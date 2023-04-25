@@ -1,31 +1,48 @@
 #include "main.h"
+#include <stddef.h>
+#include <stdio.h>
+
 
 /**
- * _printf - print string as printf
- * @format: number of arguments
- * Return: void
- **/
+ * _printf - function that prints output
+ * @format: is a charachter string with 0 to 3 directives
+ * Return: the number of charachters to be printed
+ */
+
 int _printf(const char *format, ...)
 {
-	va_list ap;
-	unsigned int i, result;
+	va_list valist;
+	int i, buffend = 0;
+	double totalBuffer = 0;
+	double *total;
+	char *holder;
+	char buffer[BUFSIZE];
+	char *(*spec_func)(va_list) = NULL;
 
-	result = 0;
-	va_start(ap, format);
-
-	for (i = 0; format[i] != '\0'; i++)
+	if (!format)
+		return (-1);
+	va_start(valist, format);
+	total = &totalBuffer;
+	for (i = 0; i < BUFSIZE; i++)
+		buffer[i] = 0;
+	for (i = 0; format && format[i]; i++)
 	{
 		if (format[i] == '%')
 		{
-			result += pull_print(format[i + 1], &ap);
 			i++;
+			spec_func = get_spec_func(format[i]);
+			holder = (spec_func) ? spec_func(valist) : nothing_found(format[i]);
+			if (holder)
+				buffend = alloc_buffer(holder, _strlen(holder), buffer, buffend, total);
 		}
 		else
 		{
-			_putchar(format[i]);
-			result++;
+			holder = chartos(format[i]);
+			buffend = alloc_buffer(holder, 1, buffer, buffend, total);
 		}
 	}
-	va_end(ap);
-	return (result);
+	_puts(buffer, buffend);
+	va_end(valist);
+	return (totalBuffer + buffend);
 }
+
