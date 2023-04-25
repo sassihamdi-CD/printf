@@ -119,4 +119,5 @@ Handle the following conversion specifiers:
 + You don’t have to handle the length modifiers
 ## diagrams for tasks
 + diagram for task 0 
-/assets/images/Untitled Diagram.drawio.png
+
+![plot](images/Untitled Diagram.drawio.png)
