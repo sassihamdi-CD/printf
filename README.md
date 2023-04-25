@@ -3,6 +3,11 @@
 + function that produces output according to a format.
 + Handle the conversion specifier.
 
+## Authors
+
+- [@sassi Hamdi](https://www.github.com/octokatherine)
+- [@Youcef Lakehal](https://github.com/Youcef-Lakehal)
+
 # Requirements
 
 ## General
