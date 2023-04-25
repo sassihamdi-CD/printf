@@ -1,3 +1,9 @@
+## Badges
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
+[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
+
 # 0x11. C - printf
 
 + function that produces output according to a format.
@@ -124,3 +130,11 @@ Handle the following conversion specifiers:
 + You don’t have to handle the length modifiers
 ## diagrams for tasks
 + diagram for task 0
+
+
+## Feedback
+
+If you have any feedback, please reach out to us at hamdysassy7@gmail.com
+
+Support
+For support, email hamdysassy7@.com or join our Slack channel.
