@@ -119,4 +119,3 @@ Handle the following conversion specifiers:
 + You don’t have to handle the length modifiers
 ## diagrams for tasks
 + diagram for task 0
-file:///home/sassi/Desktop/printf/Untitled%20Diagram.drawio.png
