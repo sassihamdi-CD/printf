@@ -1,6 +1,7 @@
 #ifndef _PRINT_FUNCTION_H_
 #define _PRINT_FUNCTION_H_
 #include <stdarg.h>
+#include <limits.h>
 
 typedef struct parameters
 {
