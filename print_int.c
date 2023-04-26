@@ -1,33 +1,22 @@
 #include "main.h"
 /**
- * print_int - Print integer
- * @types: List of arguments
- * @buffer: Buffer array to handle print
- * @flags:  Calculates active flags
- * @width: Width specifier
- * @precision: Precision specifier
- * @size: Size specifier
- * Return: Number of characters printed
+ * print_int - Prints an integer
+ *
+ * @ap: argument pointer
+ * @params: the parameters struct
+ *
+ * Return: The number of characters printed
  */
-int print_int(va_list types, char buffer[]
-, int flags, int width, int precision, int size)
+int print_int(va_list ap, params_t *params)
 {
-	int i = BUFF_SIZE - 2;
-	int is_negative = 0;
-	long int n = va_arg(types, long int);
+	long int num;
 
-	if (n == 0)
-	buffer[i--] = '0';
-	buffer[BUFF_SIZE - 1] = '\0';
-	unsigned long int num = (n < 0) ? ((-1) * n)
-	, is_negative = 1 : (unsigned long int) n;
-	while (num > 0)
-	{
-		buffer[i--] = (num % 10) + '0';
+	if (params->l_modifier)
+		num = va_arg(ap, long int);
+	else if (params->h_modifier)
+		num = (short int)va_arg(ap, int);
+	else
+		num = (int)va_arg(ap, int);
 
-		num /= 10;
-	}
-	i++;
-
-	return (write_number(is_negative, i, buffer, flags, width, precision, size));
+	return (print_number(convert(num, 10, 0, params), params));
 }
