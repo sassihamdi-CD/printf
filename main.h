@@ -1,5 +1,5 @@
-#ifndef _PRINT_FUNCTION_H_
-#define _PRINT_FUNCTION_H_
+#ifndef MAIN_H_
+#define MAIN_H_
 #include <stdarg.h>
 #include <limits.h>
 
@@ -26,5 +26,5 @@ int print_string(va_list types, params_t *params);
 int print_percent(va_list types, params_t *params);
 int print_int(va_list types, params_t *params);
 
-#endif /*_PRINT_FUNCTION_H_*/
+#endif /*MAIN_H_*/
 
