@@ -1,3 +1,5 @@
+#include "main.h"
+
 /**
  * printf_pointer - prints a pointer address in hexadecimal format
  * @args: the argument list
