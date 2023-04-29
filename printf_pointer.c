@@ -1,27 +1,50 @@
 #include "main.h"
 
-/**
- * printf_pointer - prints an hexadecimal number.
- * @val: arguments
- * Return: counter
- */
-int printf_pointer(va_list val)
-{
-	void *p;
-	unsigned long int a;
-	int b, i;
-	char *hex = "0123456789abcdef";
+#define MAX_HEX_DIGITS 16
 
-	p = va_arg(val, void *);
-	if (!p)
+/**
+ * printf_pointer - prints a binary number
+ * @args: the argument list
+ * Return: the number of characters printed
+ */
+
+int printf_pointer(va_list args)
+{
+	void *ptr = va_arg(args, void*);
+	unsigned long num = (unsigned long)ptr;
+	int digits = 0;
+	int i;
+	unsigned long temp = num;
+	char hex_digits[MAX_HEX_DIGITS] = "0123456789abcdef";
+	char hex[MAX_HEX_DIGITS];
+	int printed = 0;
+
+	while (temp != 0)
 	{
-		for (i = 0; "(nil)"[i]; i++)
-			_putchar("(nil)"[i]);
-		return (i);
+		digits++;
+		temp /= 16;
 	}
-	_putchar('0');
-	_putchar('x');
-	a = (unsigned long int)p;
-	b = printf_hex_aux(a);
-	return (b + 2);
+
+	printed += _putchar('0');
+	printed += _putchar('x');
+
+	if (num == 0)
+	{
+		printed += _putchar('0');
+	}
+	else
+	{
+		for (i = digits - 1; i >= 0; i--)
+		{
+			hex[i] = hex_digits[num % 16];
+			num /= 16;
+		}
+
+		for (i = 0; i < digits; i++)
+		{
+			printed += _putchar(hex[i]);
+		}
+	}
+
+	return (printed);
 }
