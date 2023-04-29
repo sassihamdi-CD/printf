@@ -11,6 +11,18 @@
 int printf_pointer(va_list args)
 {
 	void *ptr = va_arg(args, void *);
+
+	if (ptr == NULL)
+	{
+		char *null_str = "(nil)";
+		int i;
+
+		for (i = 0; null_str[i] != '\0'; i++)
+			_putchar(null_str[i]);
+
+		return (i);
+	}
+
 	unsigned long int num = (unsigned long int)ptr;
 	int printed = 0;
 	char hex_digits[MAX_HEX_DIGITS] = "0123456789abcdef";
