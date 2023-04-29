@@ -8,23 +8,20 @@
 int printf_pointer(va_list val)
 {
 	void *p;
-	char *s = "(nil)";
 	unsigned long int a;
-	int b;
-	int i;
+	int b, i;
+	char *hex = "0123456789abcdef";
 
 	p = va_arg(val, void *);
-	if (p == NULL)
+	if (!p)
 	{
-		for (i = 0; s[i] != '\0'; i++)
-			_putchar(s[i]);
+		for (i = 0; "(nil)"[i]; i++)
+			_putchar("(nil)"[i]);
 		return (i);
 	}
-
-	a = (unsigned long int)p;
 	_putchar('0');
 	_putchar('x');
+	a = (unsigned long int)p;
 	b = printf_hex_aux(a);
-
 	return (b + 2);
 }
