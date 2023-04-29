@@ -6,7 +6,7 @@
 int printf_pointer(va_list args)
 {
 	void *ptr = va_arg(args, void *);
-	unsigned long num = (unsigned long)ptr;
+	unsigned long int num = (unsigned long int)ptr;
 	int printed = 0;
 
 	printed += _putchar('0');
